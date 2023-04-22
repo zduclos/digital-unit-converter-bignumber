@@ -1,0 +1,62 @@
+{
+  "name": "digital-unit-converter-bignumber",
+  "version": "1.0.0",
+  "description": "Utility to simplify conversion of arbitrary-precision digital units of measurement",
+  "author": "Zach Duclos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zduclos/digital-unit-converter-bignumber.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zduclos/digital-unit-converter-bignumber/issues"
+  },
+  "homepage": "https://github.com/zduclos/digital-unit-converter-bignumber#readme",
+  "keywords": [
+    "convert",
+    "unit",
+    "decimal",
+    "binary",
+    "bit",
+    "byte",
+    "gibibyte",
+    "gigabyte",
+    "kibibyte",
+    "kilobyte",
+    "mebibyte",
+    "megabyte"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "watch": "tsc --watch & nodemon -q -w lib lib/index.js",
+    "build": "tsc",
+    "clean": "rm -rf lib node_modules coverage",
+    "test": "jest",
+    "lint": "eslint 'src/**/*.ts' --quiet",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "bignumber.js": "9.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "~29.5.0",
+    "@types/node": "~18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "~8.38.0",
+    "eslint-config-google": "~0.14.0",
+    "eslint-config-prettier": "~8.8.0",
+    "eslint-plugin-prettier": "~4.2.1",
+    "jest": "~29.5.0",
+    "nodemon": "~2.0.22",
+    "prettier": "~2.8.7",
+    "source-map-support": "~0.5.21",
+    "ts-jest": "~29.1.0",
+    "ts-node": "~10.9.1",
+    "typescript": "~5.0.4"
+  }
+}

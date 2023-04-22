@@ -1,0 +1,47 @@
+name: Publish digital-unit-converter-bignumber package to npmjs
+
+on:
+  push:      
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x' 
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
+      - name: upload distribution artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-artifact
+          path: |
+            lib
+            package.json
+            README.md
+            LICENSE
+          if-no-files-found: error
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org/'
+      - name: download distribution artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-artifact
+      - run: ls -R
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}    
