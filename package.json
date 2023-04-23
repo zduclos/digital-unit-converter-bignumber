@@ -1,6 +1,6 @@
 {
   "name": "digital-unit-converter-bignumber",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility to simplify conversion of arbitrary-precision digital units of measurement",
   "author": "Zach Duclos",
   "license": "MIT",
