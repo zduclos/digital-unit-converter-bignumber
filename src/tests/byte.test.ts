@@ -30,7 +30,15 @@ test('Convert bytes (B) to gigabytes (GB)', () => {
 });
 
 test('Convert bytes (B) to gibibytes (GiB)', () => {
-    expect(DataUnit.BYTE.toGibibytes(BigNumber(1))).toEqual(BigNumber(9.3132257462e-10));
+    expect(DataUnit.BYTE.toGibibytes(BigNumber(1))).toEqual(BigNumber('9.31322574615478515625e-10'));
+});
+
+test('Convert bytes (B) to terabytes (TB)', () => {
+    expect(DataUnit.BYTE.toTerabytes(BigNumber(1))).toEqual(BigNumber(1e-12));
+});
+
+test('Convert bytes (B) to tebibytes (TiB)', () => {
+    expect(DataUnit.BYTE.toTebibytes(BigNumber(1))).toEqual(BigNumber('9.094947017729282379150390625e-13'));
 });
 
 test('Convert bits (b) to bytes (B)', () => {
@@ -54,7 +62,7 @@ test('Convert megabytes (MB) to bytes (B)', () => {
 });
 
 test('Convert mebibytes (MiB) to bytes (B)', () => {
-    expect(DataUnit.BYTE.convert(BigNumber(1), DataUnit.MEBIBYTE)).toEqual(BigNumber(1049000));
+    expect(DataUnit.BYTE.convert(BigNumber(1), DataUnit.MEBIBYTE)).toEqual(BigNumber(1048576));
 });
 
 test('Convert gigabytes (GB) to bytes (B)', () => {
@@ -63,4 +71,12 @@ test('Convert gigabytes (GB) to bytes (B)', () => {
 
 test('Convert gibibytes (GiB) to bytes (B)', () => {
     expect(DataUnit.BYTE.convert(BigNumber(1), DataUnit.GIBIBYTE)).toEqual(BigNumber(1073741824));
+});
+
+test('Convert terabytes (TB) to bytes (B)', () => {
+    expect(DataUnit.BYTE.convert(BigNumber(1), DataUnit.TERABYTE)).toEqual(BigNumber(1000000000000));
+});
+
+test('Convert tebibytes (TiB) to bytes (B)', () => {
+    expect(DataUnit.BYTE.convert(BigNumber(1), DataUnit.TEBIBYTE)).toEqual(BigNumber(1099511627776));
 });
