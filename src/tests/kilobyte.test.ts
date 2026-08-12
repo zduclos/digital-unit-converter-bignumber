@@ -22,7 +22,7 @@ test('Convert kilobytes (kB) to megabytes (MB)', () => {
 });
 
 test('Convert kilobytes (kB) to mebibytes (MiB)', () => {
-    expect(DataUnit.KILOBYTE.toMebibytes(BigNumber(1))).toEqual(BigNumber(0.000953674));
+    expect(DataUnit.KILOBYTE.toMebibytes(BigNumber(1))).toEqual(BigNumber(0.00095367431640625));
 });
 
 test('Convert kilobytes (kB) to gigabytes (GB)', () => {
@@ -30,7 +30,15 @@ test('Convert kilobytes (kB) to gigabytes (GB)', () => {
 });
 
 test('Convert kilobytes (kB) to gibibytes (GiB)', () => {
-    expect(DataUnit.KILOBYTE.toGibibytes(BigNumber(1))).toEqual(BigNumber(9.3132257461548e-7));
+    expect(DataUnit.KILOBYTE.toGibibytes(BigNumber(1))).toEqual(BigNumber('9.31322574615478515625e-7'));
+});
+
+test('Convert kilobytes (kB) to terabytes (TB)', () => {
+    expect(DataUnit.KILOBYTE.toTerabytes(BigNumber(1))).toEqual(BigNumber(1e-9));
+});
+
+test('Convert kilobytes (kB) to tebibytes (TiB)', () => {
+    expect(DataUnit.KILOBYTE.toTebibytes(BigNumber(1))).toEqual(BigNumber('9.094947017729282379150390625e-10'));
 });
 
 test('Convert bits (b) to kilobytes (kB)', () => {
@@ -54,7 +62,7 @@ test('Convert megabytes (MB) to kilobytes (kB)', () => {
 });
 
 test('Convert mebibytes (MiB) to kilobytes (kB)', () => {
-    expect(DataUnit.KILOBYTE.convert(BigNumber(1), DataUnit.MEBIBYTE)).toEqual(BigNumber(1048.58));
+    expect(DataUnit.KILOBYTE.convert(BigNumber(1), DataUnit.MEBIBYTE)).toEqual(BigNumber(1048.576));
 });
 
 test('Convert gigabytes (GB) to kilobytes (kB)', () => {
@@ -63,4 +71,12 @@ test('Convert gigabytes (GB) to kilobytes (kB)', () => {
 
 test('Convert gibibytes (GiB) to kilobytes (kB)', () => {
     expect(DataUnit.KILOBYTE.convert(BigNumber(1), DataUnit.GIBIBYTE)).toEqual(BigNumber(1073741.824));
+});
+
+test('Convert terabytes (TB) to kilobytes (kB)', () => {
+    expect(DataUnit.KILOBYTE.convert(BigNumber(1), DataUnit.TERABYTE)).toEqual(BigNumber(1000000000));
+});
+
+test('Convert tebibytes (TiB) to kilobytes (kB)', () => {
+    expect(DataUnit.KILOBYTE.convert(BigNumber(1), DataUnit.TEBIBYTE)).toEqual(BigNumber(1099511627.776));
 });
