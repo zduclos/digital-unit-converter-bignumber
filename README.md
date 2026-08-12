@@ -398,7 +398,7 @@ ___
 
 ### toTebibytes
 
-▸ **toTebibytes**(`val`: *number*): *number*
+▸ **toTebibytes**(`val`: *BigNumber*): *BigNumber*
 
 Convert a value in this unit to tebibytes (TiB)
 
@@ -418,7 +418,7 @@ ___
 
 ### toTerabytes
 
-▸ **toTerabytes**(`val`: *number*): *number*
+▸ **toTerabytes**(`val`: *BigNumber*): *BigNumber*
 
 Convert a value in this unit to terabytes (TB)
 

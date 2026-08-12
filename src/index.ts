@@ -7,7 +7,7 @@ export class DataUnit {
     /**
      * Bit (b). Data unit representing a binary digit
      */
-    public static readonly BIT = new DataUnit(new BigNumber(1).dividedBy(8));
+    public static readonly BIT = new DataUnit(new BigNumber('0.125'));
 
     /**
      * Byte (B). Data unit representing 8 bits
