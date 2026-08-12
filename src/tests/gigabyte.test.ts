@@ -14,7 +14,7 @@ test('Convert gigabytes (GB) to kilobytes (kB)', () => {
 });
 
 test('Convert gigabytes (GB) to kibibytes (KiB)', () => {
-    expect(DataUnit.GIGABYTE.toKibibytes(BigNumber(1))).toEqual(BigNumber(9765632.5));
+    expect(DataUnit.GIGABYTE.toKibibytes(BigNumber(1))).toEqual(BigNumber(976562.5));
 });
 
 test('Convert gigabytes (GB) to megabytes (MB)', () => {
@@ -22,7 +22,7 @@ test('Convert gigabytes (GB) to megabytes (MB)', () => {
 });
 
 test('Convert gigabytes (GB) to mebibytes (MiB)', () => {
-    expect(DataUnit.GIGABYTE.toMebibytes(BigNumber(1))).toEqual(BigNumber(953.674));
+    expect(DataUnit.GIGABYTE.toMebibytes(BigNumber(1))).toEqual(BigNumber(953.67431640625));
 });
 
 test('Convert gigabytes (GB) to gigabytes (GB)', () => {
@@ -30,7 +30,15 @@ test('Convert gigabytes (GB) to gigabytes (GB)', () => {
 });
 
 test('Convert gigabytes (GB) to gibibytes (GiB)', () => {
-    expect(DataUnit.GIGABYTE.toGibibytes(BigNumber(1))).toEqual(BigNumber('0.93132257461547851563'));
+    expect(DataUnit.GIGABYTE.toGibibytes(BigNumber(1))).toEqual(BigNumber('0.931322574615478515625'));
+});
+
+test('Convert gigabytes (GB) to terabytes (TB)', () => {
+    expect(DataUnit.GIGABYTE.toTerabytes(BigNumber(1))).toEqual(BigNumber(0.001));
+});
+
+test('Convert gigabytes (GB) to tebibytes (TiB)', () => {
+    expect(DataUnit.GIGABYTE.toTebibytes(BigNumber(1))).toEqual(BigNumber('0.0009094947017729282379150390625'));
 });
 
 test('Convert bits (b) to gigabytes (GB)', () => {
@@ -54,7 +62,7 @@ test('Convert megabytes (MB) to gigabytes (GB)', () => {
 });
 
 test('Convert mebibytes (MiB) to gigabytes (GB)', () => {
-    expect(DataUnit.GIGABYTE.convert(BigNumber(1), DataUnit.MEBIBYTE)).toEqual(BigNumber(0.00104858));
+    expect(DataUnit.GIGABYTE.convert(BigNumber(1), DataUnit.MEBIBYTE)).toEqual(BigNumber(0.001048576));
 });
 
 test('Convert gigabytes (GB) to gigabytes (GB)', () => {
@@ -63,4 +71,12 @@ test('Convert gigabytes (GB) to gigabytes (GB)', () => {
 
 test('Convert gibibytes (GiB) to gigabytes (GB)', () => {
     expect(DataUnit.GIGABYTE.convert(BigNumber(1), DataUnit.GIBIBYTE)).toEqual(BigNumber(1.073741824));
+});
+
+test('Convert terabytes (TB) to gigabytes (GB)', () => {
+    expect(DataUnit.GIGABYTE.convert(BigNumber(1), DataUnit.TERABYTE)).toEqual(BigNumber(1000));
+});
+
+test('Convert tebibytes (TiB) to gigabytes (GB)', () => {
+    expect(DataUnit.GIGABYTE.convert(BigNumber(1), DataUnit.TEBIBYTE)).toEqual(BigNumber(1099.511627776));
 });
