@@ -83,12 +83,13 @@
     "access": "public"
   },
   "sideEffects": false,
-  "dependencies": {
+  "peerDependencies": {
     "bignumber.js": "11.1.5"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@eslint/js": "^10.0.1",
+    "bignumber.js": "11.1.5",
     "eslint": "^10.8.0",
     "jest": "^30.4.2",
     "prettier": "^3.9.6",

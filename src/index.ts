@@ -27,32 +27,32 @@ export class DataUnit {
     /**
      * Megabyte (MB). Decimal data unit representing (1,000)^2 bytes
      */
-    public static readonly MEGABYTE = new DataUnit(new BigNumber(1_000).pow(2));
+    public static readonly MEGABYTE = new DataUnit(new BigNumber(1_000_000));
 
     /**
      * Mebibyte (MiB). Binary data unit representing (1,024)^2 bytes
      */
-    public static readonly MEBIBYTE = new DataUnit(new BigNumber(1_024).pow(2));
+    public static readonly MEBIBYTE = new DataUnit(new BigNumber(1_048_576));
 
     /**
      * Gigabyte (GB). Decimal data unit representing (1,000)^3 bytes
      */
-    public static readonly GIGABYTE = new DataUnit(new BigNumber(1_000).pow(3));
+    public static readonly GIGABYTE = new DataUnit(new BigNumber(1_000_000_000));
 
     /**
      * Gibibyte (GiB). Binary data unit representing (1,024)^3 bytes
      */
-    public static readonly GIBIBYTE = new DataUnit(new BigNumber(1_024).pow(3));
+    public static readonly GIBIBYTE = new DataUnit(new BigNumber(1_073_741_824));
 
     /**
      * Terabyte (TB). Decimal data unit representing (1,000)^4 bytes
      */
-    public static readonly TERABYTE = new DataUnit(new BigNumber(1_000).pow(4));
+    public static readonly TERABYTE = new DataUnit(new BigNumber(1_000_000_000_000));
 
     /**
      * Tebibyte (TiB). Binary data unit representing (1,024)^4 bytes
      */
-    public static readonly TEBIBYTE = new DataUnit(new BigNumber(1_024).pow(4));
+    public static readonly TEBIBYTE = new DataUnit(new BigNumber(1_099_511_627_776));
 
     /**
      * Constructs a new `DataUnit` object. A private constructor is used to prevent external instantiation.

@@ -43,6 +43,9 @@ import { DataUnit } from 'digital-unit-converter-bignumber';
 
 JavaScript: convert 10 megabytes (MB) to bytes (B)
 ```js
+const { BigNumber } = require('bignumber.js');
+const { DataUnit } = require('digital-unit-converter-bignumber');
+
 let converted = DataUnit.MEGABYTE.toBytes(BigNumber(10));
 console.log(converted.toString()); // 10000000
 
@@ -53,6 +56,9 @@ console.log(converted.toString()); // 10000000
 
 TypeScript: convert 1 gibibyte (GiB) to mebibytes (MiB)
 ```ts
+import { BigNumber } from 'bignumber.js';
+import { DataUnit } from 'digital-unit-converter-bignumber';
+
 let converted: BigNumber = DataUnit.GIBIBYTE.toMebibytes(BigNumber(1));
 console.log(converted.toString()); // 1024
 
@@ -189,7 +195,7 @@ ___
 
 Tebibyte (TiB). Binary data unit representing 1,024<sup>4</sup> bytes
 
-Defined in: [index.ts:55](https://github.com/zduclos/digital-unit-converter/blob/master/src/index.ts#L55)
+Defined in: [index.ts:55](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L55)
 
 ___
 
@@ -199,7 +205,7 @@ ___
 
 Terabyte (TB). Decimal data unit representing 1,000<sup>4</sup> bytes
 
-Defined in: [index.ts:50](https://github.com/zduclos/digital-unit-converter/blob/master/src/index.ts#L50)
+Defined in: [index.ts:50](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L50)
 
 ## Methods
 
@@ -360,7 +366,7 @@ ___
 
 ▸ **toMebibytes**(`val`: *BigNumber*): *BigNumber*
 
-Convert a value in this unit mebibytes (MiB)
+Convert a value in this unit to mebibytes (MiB)
 
 #### Parameters:
 
@@ -406,7 +412,7 @@ Convert a value in this unit to tebibytes (TiB)
 
 Name | Type | Description |
 :------ | :------ | :------ |
-`val` | *number* | value to convert to tebibytes   |
+`val` | *BigNumber* | value to convert to megabytes   |
 
 **Returns:** *number*
 
@@ -426,7 +432,7 @@ Convert a value in this unit to terabytes (TB)
 
 Name | Type | Description                   |
 :------ | :------ |:------------------------------|
-`val` | *number* | value to convert to terabytes |
+`val` | *BigNumber* | value to convert to megabytes   |
 
 **Returns:** *number*
 
