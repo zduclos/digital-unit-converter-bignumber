@@ -38,7 +38,7 @@ test('Convert bits (b) to terabytes (TB)', () => {
 });
 
 test('Convert bits (b) to tebibytes (TiB)', () => {
-    expect(DataUnit.BIT.toTebibytes(BigNumber(1))).toEqual(BigNumber('1.136868377216160297393798828e-13'));
+    expect(DataUnit.BIT.toTebibytes(BigNumber(1))).toEqual(BigNumber('1.136868377216160297393798828125e-13'));
 });
 
 test('Convert bits (b) to bits (b)', () => {

@@ -5,15 +5,17 @@
   - [Installation](#installation)
   - [Importing](#import-module)
   - [Examples](#examples)
+  - [Precision](#precision)
   - [Supported Data Units](#supported-data-units)
   - [Static Members](#static-members)
   - [Methods](#methods)
+  - [Development](#development)
 
 ## Installation
 
 Using npm
 ```console
-$ npm install digital-unit-converter-bignumber --save
+$ npm install digital-unit-converter-bignumber
 ```
 
 Using yarn
@@ -23,12 +25,16 @@ $ yarn add digital-unit-converter-bignumber
 
 ## Import module
 
-CommonJS
+The package provides native CommonJS and ES Module builds with TypeScript declarations.
+
+### CommonJS
+
 ```js
 const { DataUnit } = require('digital-unit-converter-bignumber');
 ```
 
-ES6
+### ES Modules
+
 ```ts
 import { DataUnit } from 'digital-unit-converter-bignumber';
 ```
@@ -55,20 +61,34 @@ converted = DataUnit.MEBIBYTE.convert(BigNumber(1), DataUnit.GIBIBYTE);
 console.log(converted.toString()); // 1024
 ```
 
+## Precision
+
+This library uses [`bignumber.js`](https://github.com/mikemcl/bignumber.js) for all calculations, intentionally
+respecting the precision configured by your application. `BigNumber` can be configured with sufficient precision
+for your application's requirements. Example:
+```ts
+BigNumber.config({
+  DECIMAL_PLACES: 40,
+  ROUNDING_MODE: BigNumber.ROUND_HALF_UP
+})
+``` 
+
 ## Supported Data Units
 
 The following data units are currently supported.
 
-| DataUnit | Term | Abbreviation | Unit Type | Number of Bytes |
-| :--- | :--- | :--- | :--- | :--- |
-| BIT | bit | b | - | 0.125 |
-| BYTE | byte | B | - | 1 |
-| KILOBYTE | kilobyte | kB | Decimal | 10<sup>3</sup> |
-| KIBIBYTE | kibibyte | KiB | Binary | 2<sup>10</sup> |
-| MEGABYTE | megabyte | MB | Decimal | 10<sup>6</sup> |
-| MEBIBYTE | mebibyte | MiB | Binary | 2<sup>20</sup> |
-| GIGABYTE | gigabyte | GB | Decimal | 10<sup>9</sup> |
-| GIBIBYTE | gibibyte | GiB | Binary | 2<sup>30</sup> |
+| DataUnit | Term     | Abbreviation | Unit Type | Number of Bytes |
+|:---------|:---------|:-------------|:----------|:----------------|
+| BIT      | bit      | b            | -         | 0.125           |
+| BYTE     | byte     | B            | -         | 1               |
+| KILOBYTE | kilobyte | kB           | Decimal   | 10<sup>3</sup>  |
+| KIBIBYTE | kibibyte | KiB          | Binary    | 2<sup>10</sup>  |
+| MEGABYTE | megabyte | MB           | Decimal   | 10<sup>6</sup>  |
+| MEBIBYTE | mebibyte | MiB          | Binary    | 2<sup>20</sup>  |
+| GIGABYTE | gigabyte | GB           | Decimal   | 10<sup>9</sup>  |
+| GIBIBYTE | gibibyte | GiB          | Binary    | 2<sup>30</sup>  |
+| TERABYTE | terabyte | TB           | Decimal   | 10<sup>12</sup> |
+| TEBIBYTE | tebibyte | TiB          | Binary    | 2<sup>40</sup>  |
 
 ## Static Members
 
@@ -80,6 +100,8 @@ The following data units are currently supported.
 - [KILOBYTE](README.md#kilobyte)
 - [MEBIBYTE](README.md#mebibyte)
 - [MEGABYTE](README.md#megabyte)
+- [TEBIBYTE](README.md#tebibyte)
+- [TERABYTE](README.md#terabyte)
 
 ### BIT
 
@@ -87,7 +109,7 @@ The following data units are currently supported.
 
 Bit (b). Data unit representing a binary digit
 
-Defined in: [index.ts:12](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L12)
+Defined in: [index.ts:10](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L10)
 
 ___
 
@@ -97,7 +119,7 @@ ___
 
 Byte (B). Data unit representing 8 bits
 
-Defined in: [index.ts:27](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L27)
+Defined in: [index.ts:15](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L15)
 
 ___
 
@@ -107,7 +129,7 @@ ___
 
 Gibibyte (GiB). Binary data unit representing 1,024<sup>3</sup> bytes
 
-Defined in: [index.ts:117](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L117)
+Defined in: [index.ts:45](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L45)
 
 ___
 
@@ -117,7 +139,7 @@ ___
 
 Gigabyte (GB). Decimal data unit representing 1,000<sup>3</sup> bytes
 
-Defined in: [index.ts:102](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L102)
+Defined in: [index.ts:40](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L40)
 
 ___
 
@@ -127,7 +149,7 @@ ___
 
 Kibibyte (KiB). Binary data unit representing 1,024 bytes
 
-Defined in: [index.ts:57](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L57)
+Defined in: [index.ts:25](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L25)
 
 ___
 
@@ -137,7 +159,7 @@ ___
 
 Kilobyte (kB). Decimal data unit representing 1,000 bytes
 
-Defined in: [index.ts:42](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L42)
+Defined in: [index.ts:20](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L20)
 
 ___
 
@@ -147,7 +169,7 @@ ___
 
 Mebibyte (MiB). Binary data unit representing 1,024<sup>2</sup> bytes
 
-Defined in: [index.ts:87](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L87)
+Defined in: [index.ts:35](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L35)
 
 ___
 
@@ -157,7 +179,27 @@ ___
 
 Megabyte (MB). Decimal data unit representing 1,000<sup>2</sup> bytes
 
-Defined in: [index.ts:72](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L72)
+Defined in: [index.ts:30](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L30)
+
+___
+
+### TEBIBYTE
+
+▪ `Static` `Readonly` **TEBIBYTE**: *DataUnit*
+
+Tebibyte (TiB). Binary data unit representing 1,024<sup>4</sup> bytes
+
+Defined in: [index.ts:55](https://github.com/zduclos/digital-unit-converter/blob/master/src/index.ts#L55)
+
+___
+
+### TERABYTE
+
+▪ `Static` `Readonly` **TERABYTE**: *DataUnit*
+
+Terabyte (TB). Decimal data unit representing 1,000<sup>4</sup> bytes
+
+Defined in: [index.ts:50](https://github.com/zduclos/digital-unit-converter/blob/master/src/index.ts#L50)
 
 ## Methods
 
@@ -170,6 +212,8 @@ Defined in: [index.ts:72](https://github.com/zduclos/digital-unit-converter-bign
 - [toKilobytes](README.md#tokilobytes)
 - [toMebibytes](README.md#tomebibytes)
 - [toMegabytes](README.md#tomegabytes)
+- [toTebibytes](README.md#totebibytes)
+- [toTerabytes](README.md#toterabytes)
 
 ### convert
 
@@ -188,7 +232,7 @@ Name | Type | Description |
 
 converted value in this unit
 
-Defined in: [index.ts:261](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L261)
+Defined in: [index.ts:71](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L71)
 
 ___
 
@@ -208,7 +252,7 @@ Name | Type | Description |
 
 converted bit value
 
-Defined in: [index.ts:180](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L180)
+Defined in: [index.ts:81](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L81)
 
 ___
 
@@ -228,7 +272,7 @@ Name | Type | Description |
 
 converted byte value
 
-Defined in: [index.ts:190](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L190)
+Defined in: [index.ts:91](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L91)
 
 ___
 
@@ -248,7 +292,7 @@ Name | Type | Description |
 
 converted gibibyte value
 
-Defined in: [index.ts:250](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L250)
+Defined in: [index.ts:151](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L151)
 
 ___
 
@@ -268,7 +312,7 @@ Name | Type | Description |
 
 converted gigabyte value
 
-Defined in: [index.ts:240](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L240)
+Defined in: [index.ts:141](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L141)
 
 ___
 
@@ -288,7 +332,7 @@ Name | Type | Description |
 
 converted kibibyte value
 
-Defined in: [index.ts:210](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L210)
+Defined in: [index.ts:111](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L111)
 
 ___
 
@@ -308,7 +352,7 @@ Name | Type | Description |
 
 converted kilobyte value
 
-Defined in: [index.ts:200](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L200)
+Defined in: [index.ts:101](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L101)
 
 ___
 
@@ -328,7 +372,7 @@ Name | Type | Description |
 
 converted mebibyte value
 
-Defined in: [index.ts:230](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L230)
+Defined in: [index.ts:131](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L131)
 
 ___
 
@@ -348,4 +392,53 @@ Name | Type | Description |
 
 converted megabyte value
 
-Defined in: [index.ts:220](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L220)
+Defined in: [index.ts:121](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L121)
+
+___
+
+### toTebibytes
+
+▸ **toTebibytes**(`val`: *number*): *number*
+
+Convert a value in this unit to tebibytes (TiB)
+
+#### Parameters:
+
+Name | Type | Description |
+:------ | :------ | :------ |
+`val` | *number* | value to convert to tebibytes   |
+
+**Returns:** *number*
+
+converted tebibyte value
+
+Defined in: [index.ts:171](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L171)
+
+___
+
+### toTerabytes
+
+▸ **toTerabytes**(`val`: *number*): *number*
+
+Convert a value in this unit to terabytes (TB)
+
+#### Parameters:
+
+Name | Type | Description                   |
+:------ | :------ |:------------------------------|
+`val` | *number* | value to convert to terabytes |
+
+**Returns:** *number*
+
+converted terabyte value
+
+Defined in: [index.ts:161](https://github.com/zduclos/digital-unit-converter-bignumber/blob/master/src/index.ts#L161)
+
+___
+
+## Development
+Node.js 22 or newer is supported.
+
+```shell
+npm install
+npm run check
